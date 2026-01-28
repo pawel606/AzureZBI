@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAST vs DAST - Epicka Bitwa o Bezpieczeństwo! 🛡️</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">🔐 SecTest Arena</div>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="showPage('home')">Home</a></li>
+                <li><a href="#sast" onclick="showPage('sast')">SAST</a></li>
+                <li><a href="#dast" onclick="showPage('dast')">DAST</a></li>
+                <li><a href="#battle" onclick="showPage('battle')">Bitwa!</a></li>
+                <li><a href="#vulnerabilities" onclick="showPage('vulnerabilities')">Luki</a></li>
+                <li><a href="#admin" onclick="showPage('admin')">Admin Panel</a></li>
+            </ul>
+        </nav>
+
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1 class="glitch" data-text="SAST vs DAST">SAST vs DAST</h1>
+                <p class="subtitle">Gdzie dwa bezpieczeństwa się biją, haker korzysta! 😈</p>
+                <div class="hero-buttons">
+                    <button onclick="showPage('sast')" class="btn btn-primary">Poznaj SAST</button>
+                    <button onclick="showPage('dast')" class="btn btn-secondary">Poznaj DAST</button>
+                </div>
+            </div>
+
+            <div class="info-cards">
+                <div class="card slide-in">
+                    <h3>🔍 SAST</h3>
+                    <p>Static Application Security Testing - analizuje kod źródłowy bez uruchamiania aplikacji</p>
+                    <span class="badge">White Box</span>
+                </div>
+                <div class="card slide-in" style="animation-delay: 0.2s">
+                    <h3>🚀 DAST</h3>
+                    <p>Dynamic Application Security Testing - testuje działającą aplikację od zewnątrz</p>
+                    <span class="badge">Black Box</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SAST Page -->
+        <div id="sast" class="page">
+            <div class="content">
+                <h2>SAST - Statyczny Analizator Strasznych Alertów Testowych 🤓</h2>
+                <div class="mascot">🕵️‍♂️</div>
+                
+                <div class="feature-list">
+                    <div class="feature">
+                        <h3>💪 Mocne strony:</h3>
+                        <ul>
+                            <li>Znajduje luki zanim kod trafi na produkcję</li>
+                            <li>Dokładnie wskazuje miejsce problemu w kodzie</li>
+                            <li>Szybka analiza - nie trzeba uruchamiać aplikacji</li>
+                            <li>Pokrywa cały kod, nawet nieużywane fragmenty</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>😢 Słabe strony:</h3>
+                        <ul>
+                            <li>Dużo false positives (fałszywych alarmów)</li>
+                            <li>Nie wykrywa błędów konfiguracji</li>
+                            <li>Czasem nie rozumie kontekstu biznesowego</li>
+                            <li>Wymaga dostępu do kodu źródłowego</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <h4>Przykład kodu, który SAST by wykrył:</h4>
+                    <pre><code>// SQL Injection vulnerability
+String query = "SELECT * FROM users WHERE name = '" + userInput + "'";
+
+// Hardcoded credentials
+String password = "admin123";
+
+// Path traversal
+String filename = request.getParameter("file");
+File file = new File("/uploads/" + filename);</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAST Page -->
+        <div id="dast" class="page">
+            <div class="content">
+                <h2>DAST - Dynamiczny Atakujący System Testujący 🚀</h2>
+                <div class="mascot">🤖</div>
+                
+                <div class="feature-list">
+                    <div class="feature">
+                        <h3>💪 Mocne strony:</h3>
+                        <ul>
+                            <li>Testuje rzeczywiste działanie aplikacji</li>
+                            <li>Znajduje błędy konfiguracji i runtime issues</li>
+                            <li>Nie wymaga dostępu do kodu źródłowego</li>
+                            <li>Mniej false positives</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>😢 Słabe strony:</h3>
+                        <ul>
+                            <li>Testuje tylko uruchomioną aplikację</li>
+                            <li>Może nie pokryć wszystkich ścieżek kodu</li>
+                            <li>Wolniejszy niż SAST</li>
+                            <li>Trudniej zlokalizować dokładne miejsce błędu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="attack-simulator">
+                    <h4>Symulator ataku DAST:</h4>
+                    <button onclick="simulateDAST()" class="btn btn-danger">🔥 Rozpocznij skanowanie!</button>
+                    <div id="dast-results"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Battle Page -->
+        <div id="battle" class="page">
+            <div class="content">
+                <h2>⚔️ SAST vs DAST - ULTIMATE SHOWDOWN!</h2>
+                
+                <div class="battle-arena">
+                    <div class="fighter">
+                        <div class="fighter-card sast-card">
+                            <h3>SAST</h3>
+                            <div class="fighter-icon">🕵️‍♂️</div>
+                            <div class="stats">
+                                <div class="stat">Szybkość: ⭐⭐⭐⭐⭐</div>
+                                <div class="stat">Pokrycie: ⭐⭐⭐⭐⭐</div>
+                                <div class="stat">Dokładność: ⭐⭐⭐</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vs">VS</div>
+
+                    <div class="fighter">
+                        <div class="fighter-card dast-card">
+                            <h3>DAST</h3>
+                            <div class="fighter-icon">🤖</div>
+                            <div class="stats">
+                                <div class="stat">Szybkość: ⭐⭐⭐</div>
+                                <div class="stat">Pokrycie: ⭐⭐⭐</div>
+                                <div class="stat">Dokładność: ⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verdict">
+                    <h3>🏆 Werdykt:</h3>
+                    <p class="winner-text">Nie ma zwycięzcy! Najlepsze wyniki osiągniesz używając OBU narzędzi razem! 🎉</p>
+                    <p>SAST + DAST = ❤️ Pełne bezpieczeństwo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vulnerabilities Page - Intentional Security Issues -->
+        <div id="vulnerabilities" class="page">
+            <div class="content">
+                <h2>🐛 Strefa Podatności (do testowania!)</h2>
+                <p class="warning">⚠️ Ta strona zawiera celowe luki bezpieczeństwa do celów testowych!</p>
+
+                <!-- XSS Vulnerability -->
+                <div class="vuln-section">
+                    <h3>1. XSS (Cross-Site Scripting)</h3>
+                    <input type="text" id="xss-input" placeholder="Wpisz coś...">
+                    <button onclick="executeXSS()">Wyświetl</button>
+                    <div id="xss-output"></div>
+                </div>
+
+                <!-- SQL Injection Simulation -->
+                <div class="vuln-section">
+                    <h3>2. SQL Injection (symulacja)</h3>
+                    <input type="text" id="sql-input" placeholder="Wpisz nazwę użytkownika">
+                    <button onclick="simulateSQL()">Szukaj</button>
+                    <div id="sql-output"></div>
+                </div>
+
+                <!-- Insecure Direct Object Reference -->
+                <div class="vuln-section">
+                    <h3>3. IDOR (Insecure Direct Object Reference)</h3>
+                    <input type="number" id="user-id" placeholder="User ID" value="1">
+                    <button onclick="getUserData()">Pobierz dane</button>
+                    <div id="user-output"></div>
+                </div>
+
+                <!-- Command Injection -->
+                <div class="vuln-section">
+                    <h3>4. Command Injection (symulacja)</h3>
+                    <input type="text" id="cmd-input" placeholder="ping 127.0.0.1">
+                    <button onclick="executeCommand()">Wykonaj</button>
+                    <div id="cmd-output"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Panel - Weak Authentication -->
+        <div id="admin" class="page">
+            <div class="content">
+                <h2>🔑 Panel Administratora</h2>
+                
+                <div class="login-form">
+                    <h3>Logowanie</h3>
+                    <input type="text" id="admin-user" placeholder="Login">
+                    <input type="password" id="admin-pass" placeholder="Hasło">
+                    <button onclick="adminLogin()">Zaloguj</button>
+                    <div id="admin-result"></div>
+                    
+                    <p class="hint">💡 Hint: admin / admin123</p>
+                </div>
+
+                <div id="admin-panel" style="display: none;">
+                    <h3>Witaj w panelu admina!</h3>
+                    <div class="admin-actions">
+                        <button onclick="showSecretData()">Pokaż poufne dane</button>
+                        <button onclick="deleteEverything()">Usuń wszystko 🔥</button>
+                    </div>
+                    <div id="secret-data"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden comments with sensitive data (for SAST to find) -->
+    <!-- 
+        TODO: Remove before production!
+        Database password: SuperSecret123!
+        API Key: sk-1234567890abcdef
+        Admin backup: admin@example.com / P@ssw0rd!
+    -->
+
+    <script src="script.js"></script>
+</body>
+</html>

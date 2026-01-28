@@ -1,0 +1,43 @@
+{
+  "name": "sast-dast-vulnerable-app",
+  "version": "1.0.0",
+  "description": "Intentionally vulnerable web application for SAST and DAST testing",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "serve": "python3 -m http.server 8080",
+    "lint": "eslint script.js",
+    "lint:security": "eslint script.js --plugin security",
+    "scan:sast": "semgrep --config=auto .",
+    "scan:secrets": "trufflehog filesystem .",
+    "test": "echo \"No tests configured - this is a vulnerable app for testing purposes\"",
+    "zap:baseline": "docker run -v $(pwd):/zap/wrk/:rw --network=\"host\" -t owasp/zap2docker-stable zap-baseline.py -t http://localhost:8080"
+  },
+  "keywords": [
+    "security",
+    "SAST",
+    "DAST",
+    "vulnerable",
+    "testing",
+    "educational",
+    "owasp",
+    "security-testing"
+  ],
+  "author": "Security Testing Team",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-plugin-security": "^1.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/sast-dast-vulnerable-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/sast-dast-vulnerable-app/issues"
+  },
+  "homepage": "https://github.com/yourusername/sast-dast-vulnerable-app#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
